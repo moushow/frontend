@@ -53,7 +53,7 @@
     <el-container>
       <el-header style="font-size: 12px; border-bottom: 1px solid #ccc; line-height: 60px; display: flex">
         <div style="flex: 1; font-size: 18px">
-          <!-- <span :class="collapseBtnClass" style="cursor: pointer" @click="collapse"></span> -->
+          <span :class="collapseBtnClass" style="cursor: pointer" @click="collapse"></span> 
         </div>
         <el-dropdown style="width: 70px">
           <span>王小虎</span><i class="el-icon-arrow-down" style="margin-left: 5px"></i>
@@ -119,7 +119,7 @@ export default {
       tableData: Array(10).fill(item),
       collapseBtnClass: 'el-icon-s-fold',
       isCollapse: false,
-      sideWidth: 200,
+      sidewidth: 200,
       logoTextShow: true,
       headerBg: 'headerBg'
     };
