@@ -11,7 +11,7 @@
           :collapse="isCollapse"
       >
         <div style="height: 60px; line-height: 60px; text-align: center">
-          <img src="../assets/1716029223461.jpg" alt="" style="width: 40px; position: relative; top: 15px; margin-right: 5px;" />
+          <img src="../assets/schedule.webp" alt="" style="width: 40px; position: relative; top: 15px; margin-right: 5px;" />
           <b style="color: white" v-show="logoTextShow">日程管理系统</b>
         </div>
         <el-submenu index="1">
@@ -74,9 +74,9 @@
           </el-breadcrumb>
         </div>
         <div style="padding: 10px 0">
-          <el-input style="width: 200px" placeholder="请输入名称" suffix-icon="el-icon-search"></el-input>
-          <el-input style="width: 200px" placeholder="请输入邮箱" suffix-icon="el-icon-message" class="ml-5"></el-input>
-          <el-input style="width: 200px" placeholder="请输入地址" suffix-icon="el-icon-position" class="ml-5"></el-input>
+          <el-input style="width: 200px" placeholder="请输入日期" suffix-icon="el-icon-date"></el-input>
+          <el-input style="width: 200px" placeholder="请输入事务" suffix-icon="el-icon-message-solid" class="ml-5"></el-input>
+          <el-input style="width: 200px" placeholder="请输入备注" suffix-icon="el-icon-edit" class="ml-5"></el-input>
           <el-button class="ml-5" type="primary">搜索</el-button>
         </div>
 
@@ -89,8 +89,8 @@
 
         <el-table :data="tableData" border stripe :header-cell-class-name="headerBg">
           <el-table-column prop="date" label="日期" width="140"></el-table-column>
-          <el-table-column prop="name" label="姓名" width="120"></el-table-column>
-          <el-table-column prop="address" label="地址"></el-table-column>
+          <el-table-column prop="schedule" label="事务" width="120"></el-table-column>
+          <el-table-column prop="remark" label="备注"></el-table-column>
           <el-table-column label="操作">
             <template #default="scope">
               <el-button type="success">编辑 <i class="el-icon-edit"></i></el-button>
@@ -112,14 +112,14 @@ export default {
   data() {
     const item = {
       date: '2016-05-02',
-      name: '王小虎',
-      address: '提瓦特'
+      schedule: '王小虎',
+      remark: '提瓦特'
     };
     return {
       tableData: Array(10).fill(item),
       collapseBtnClass: 'el-icon-s-fold',
       isCollapse: false,
-      sidewidth: 200,
+      sideWidth: 200,
       logoTextShow: true,
       headerBg: 'headerBg'
     };
