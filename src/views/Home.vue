@@ -74,10 +74,11 @@
           </el-breadcrumb>
         </div>
         <div style="padding: 10px 0">
-          <el-input style="width: 200px" placeholder="请输入日期" suffix-icon="el-icon-date"></el-input>
-          <el-input style="width: 200px" placeholder="请输入事务" suffix-icon="el-icon-message-solid" class="ml-5"></el-input>
-          <el-input style="width: 200px" placeholder="请输入备注" suffix-icon="el-icon-edit" class="ml-5"></el-input>
-          <el-button class="ml-5" type="primary">搜索</el-button>
+<!--          <el-input style="width: 200px" placeholder="请输入日期" suffix-icon="el-icon-date"></el-input>-->
+          <el-input style="width: 200px" placeholder="请输入事务" suffix-icon="el-icon-message-solid" class="ml-5" v-model="event"></el-input>
+<!--          <el-input style="width: 200px" placeholder="请输入状态" suffix-icon="el-icon-s-order" class="ml-5"></el-input>-->
+<!--          <el-input style="width: 200px" placeholder="请输入备注" suffix-icon="el-icon-edit" class="ml-5"></el-input>-->
+          <el-button class="ml-5" type="primary" @click="load">搜索</el-button>
         </div>
 
         <div style="margin: 10px 0">
@@ -88,8 +89,10 @@
         </div>
 
         <el-table :data="tableData" border stripe :header-cell-class-name="headerBg">
-          <el-table-column prop="date" label="日期" width="140"></el-table-column>
-          <el-table-column prop="schedule" label="事务" width="120"></el-table-column>
+          <el-table-column prop="id" label="ID" width="80"></el-table-column>
+          <el-table-column prop="date" label="日期" width="150"></el-table-column>
+          <el-table-column prop="event" label="事务" width="150"></el-table-column>
+          <el-table-column prop="state" label="状态" width="150"></el-table-column>
           <el-table-column prop="remark" label="备注"></el-table-column>
           <el-table-column label="操作">
             <template #default="scope">
@@ -99,7 +102,15 @@
           </el-table-column>
         </el-table>
         <div style="padding: 10px 0">
-          <el-pagination :page-sizes="[5, 10, 15, 20]" :page-size="10" layout="total, sizes, prev, pager, next, jumper" :total="400"></el-pagination>
+          <el-pagination
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+              :current-page="pageNum"
+              :page-sizes="[2, 5, 10, 20]"
+              :page-size="pageSize"
+              layout="total, sizes, prev, pager, next, jumper"
+              :total="total">
+          </el-pagination>
         </div>
       </el-main>
     </el-container>
@@ -110,13 +121,12 @@
 export default {
   name: 'HomeView',
   data() {
-    const item = {
-      date: '2016-05-02',
-      schedule: '王小虎',
-      remark: '提瓦特'
-    };
     return {
-      tableData: Array(10).fill(item),
+      tableData: [],
+      total: 0,
+      pageNum: 1,
+      pageSize: 2,
+      event: "",
       collapseBtnClass: 'el-icon-s-fold',
       isCollapse: false,
       sideWidth: 200,
@@ -126,9 +136,7 @@ export default {
   },
   created(){
     //请求分页查询数据
-    fetch("http://localhost:9090/user/page?pageNum=1&pageSize=2").then(res =>res.json()).then(res =>{
-      console.log(res)
-    })
+    this.load()
   },
   methods: {
     collapse() {
@@ -142,6 +150,24 @@ export default {
         this.collapseBtnClass = 'el-icon-s-fold';
         this.logoTextShow = true;
       }
+    },
+    load(){
+      fetch("http://localhost:9090/schedule/page?pageNum="+this.pageNum+"&pageSize="+this.pageSize+"&event="+this.event)
+          .then(res =>res.json()).then(res =>{
+        console.log(res)
+        this.tableData = res.data
+        this.total = res.total
+      })
+    },
+    handleSizeChange(pageSize){
+      console.log(pageSize)
+      this.pageSize = pageSize
+      this.load()
+    },
+    handleCurrentChange(pageNum){
+      console.log(pageNum)
+      this.pageNum = pageNum
+      this.load()
     }
   }
 };
