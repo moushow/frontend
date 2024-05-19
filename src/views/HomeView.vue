@@ -124,6 +124,12 @@ export default {
       headerBg: 'headerBg'
     };
   },
+  created(){
+    //请求分页查询数据
+    fetch("http://localhost:9090/user/page?pageNum=1&pageSize=2").then(res =>res.json()).then(res =>{
+      console.log(res)
+    })
+  },
   methods: {
     collapse() {
       this.isCollapse = !this.isCollapse;
