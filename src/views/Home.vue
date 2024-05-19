@@ -76,8 +76,8 @@
         <div style="padding: 10px 0">
 <!--          <el-input style="width: 200px" placeholder="请输入日期" suffix-icon="el-icon-date"></el-input>-->
           <el-input style="width: 200px" placeholder="请输入事务" suffix-icon="el-icon-message-solid" class="ml-5" v-model="event"></el-input>
-<!--          <el-input style="width: 200px" placeholder="请输入状态" suffix-icon="el-icon-s-order" class="ml-5"></el-input>-->
-<!--          <el-input style="width: 200px" placeholder="请输入备注" suffix-icon="el-icon-edit" class="ml-5"></el-input>-->
+          <el-input style="width: 200px" placeholder="请输入状态" suffix-icon="el-icon-s-order" class="ml-5" v-model="state"></el-input>
+          <el-input style="width: 200px" placeholder="请输入备注" suffix-icon="el-icon-edit" class="ml-5" v-model="remark"></el-input>
           <el-button class="ml-5" type="primary" @click="load">搜索</el-button>
         </div>
 
@@ -127,6 +127,8 @@ export default {
       pageNum: 1,
       pageSize: 2,
       event: "",
+      state: "",
+      remark: "",
       collapseBtnClass: 'el-icon-s-fold',
       isCollapse: false,
       sideWidth: 200,
@@ -152,7 +154,12 @@ export default {
       }
     },
     load(){
-      fetch("http://localhost:9090/schedule/page?pageNum="+this.pageNum+"&pageSize="+this.pageSize+"&event="+this.event)
+      fetch("http://localhost:9090/schedule/page?" +
+          "pageNum="+this.pageNum+
+          "&pageSize="+this.pageSize+
+          "&event="+this.event+
+          "&state="+this.state+
+          "&remark="+this.remark)
           .then(res =>res.json()).then(res =>{
         console.log(res)
         this.tableData = res.data
