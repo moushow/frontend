@@ -7,13 +7,14 @@
           active-text-color="#ffd04b"
           :collapse-transition="false"
           :collapse="isCollapse"
+          router
       >
         <div style="height: 60px; line-height: 60px; text-align: center">
           <img src="../assets/schedule.webp" alt="" style="width: 40px; position: relative; top: 15px; margin-right: 5px;" />
           <b style="color: white" v-show="logoTextShow">日程管理系统</b>
         </div>
 
-          <el-menu-item index="1-3">
+          <el-menu-item index="/">
             <template slot="title">
             <i class="el-icon-house"></i>
             <span slot="title">主页</span>
@@ -24,11 +25,11 @@
         <el-submenu index="2">
           <template slot="title">
             <i class="el-icon-menu"></i>
-            <span slot="title">系统管理</span>
+            <span slot="title">系统功能</span>
           </template>
-            <el-menu-item index="2-4-1">
+            <el-menu-item index="/user">
               <i class="el-icon-s-custom"></i>
-              <span slot="title">用户管理</span>
+              <span slot="title">日程管理</span>
             </el-menu-item>
           </el-submenu>
 

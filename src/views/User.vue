@@ -3,7 +3,7 @@
         <div style="margin-bottom: 30px">
           <el-breadcrumb separator="/">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item><a href="/">日程查询</a></el-breadcrumb-item>
+            <el-breadcrumb-item><a href="/">日程管理</a></el-breadcrumb-item>
           </el-breadcrumb>
         </div>
         <div style="padding: 10px 0">
