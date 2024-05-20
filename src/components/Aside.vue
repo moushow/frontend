@@ -52,6 +52,11 @@ export default{
     props:{
         isCollapse: Boolean,
         logoTextShow: Boolean
+    },
+    methods:{
+      handleSelect(index){
+        
+      }
     }
 }
 </script>

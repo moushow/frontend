@@ -1,11 +1,5 @@
 <template>
     <div>
-        <div style="margin-bottom: 30px">
-          <el-breadcrumb separator="/">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item><a href="/">日程管理</a></el-breadcrumb-item>
-          </el-breadcrumb>
-        </div>
         <div style="padding: 10px 0">
           <el-input style="width: 200px" placeholder="请输入事务" suffix-icon="el-icon-message-solid" class="ml-5" v-model="event"></el-input>
           <el-input style="width: 200px" placeholder="请输入状态" suffix-icon="el-icon-s-order" class="ml-5" v-model="state"></el-input>
