@@ -29,7 +29,7 @@
           </template>
             <el-menu-item index="/user">
               <i class="el-icon-s-custom"></i>
-              <span slot="title">日程管理</span>
+              <span slot="title">日程查询</span>
             </el-menu-item>
           </el-submenu>
 
