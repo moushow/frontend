@@ -27,7 +27,7 @@
             <i class="el-icon-menu"></i>
             <span slot="title">系统功能</span>
           </template>
-            <el-menu-item index="/user">
+            <el-menu-item index="/schedule">
               <i class="el-icon-s-custom"></i>
               <span slot="title">日程查询</span>
             </el-menu-item>
