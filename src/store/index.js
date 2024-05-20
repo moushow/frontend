@@ -7,7 +7,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state:{
-        currentPathName:''
+        currentPathName: ''
     },
     mutations:{
         setPath(state){

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Manage from '../views/Manage.vue'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -37,7 +36,7 @@ const router = new VueRouter({
 })
 
 //路由守卫
-router.beforeEach((to,from,next,) => {
+router.beforeEach((to,from,next) => {
   localStorage.setItem("currentPathName",to.name)  //设置当前路由名称
   store.commit("setPath")
   next()
