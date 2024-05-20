@@ -35,12 +35,15 @@ export default{
         console.log(newVal)
       }
     },
+    // created(){
+    //   this.$store.commit('initializePath');
+    // }
     
-    data(){
-      return{
-        currentPathName:''
-      }
-    },
+    // data(){
+    //   return{
+    //     currentPathName:localStorage.getItem("currentPathName")
+    //   }
+    // },
     
 }
 </script>
