@@ -121,7 +121,15 @@ export default{
         }
       }).then(res =>{
             console.log(res)
-            this.tableData = res.data
+          this.tableData = res.data.map(item => {
+            // 将日期转换为 Date 对象
+            let date = new Date(item.date);
+            // 推后一天
+            date.setDate(date.getDate() + 1);
+            // 转换为 yyyy-MM-dd 格式
+            item.date = date.toISOString().split('T')[0];
+            return item;
+          });
             this.total = res.total
           })
     },
