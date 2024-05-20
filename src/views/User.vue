@@ -16,9 +16,17 @@
 
         <div style="margin: 10px 0">
           <el-button type="primary" @click="handadd">新增 <i class="el-icon-circle-plus-outline"></i></el-button>
-          <el-button type="danger">批量删除 <i class="el-icon-remove-outline"></i></el-button>
-          <el-button type="primary">导入 <i class="el-icon-bottom"></i></el-button>
-          <el-button type="primary">导出 <i class="el-icon-top"></i></el-button>
+          <el-popconfirm
+              class="ml-5"
+              confirm-button-text='确定'
+              cancel-button-text='取消'
+              icon="el-icon-info"
+              icon-color="red"
+              title="确定批量删除吗？"
+              @confirm="delBatch"
+          >
+            <el-button type="danger" slot="reference">批量删除 <i class="el-icon-remove-outline"></i></el-button>
+          </el-popconfirm>
         </div>
 
        
@@ -170,6 +178,18 @@ export default{
     handleSelectionChange(val){
       console.log(val)
       this.multipleSelection = val
+    },
+    delBatch(){
+      let ids = this.multipleSelection.map(v => v.id)
+      this.request.post("/schedule/del/batch", ids).then(res =>{
+        if(res){
+          this.$message.success("批量删除成功")
+          this.dialogFormVisible = false
+          this.load()
+        }else{
+          this.$message.error("批量删除失败")
+        }
+      })
     },
     reset(){
       this.date=""
