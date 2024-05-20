@@ -90,7 +90,7 @@
 
 <script>
 export default{
-    name: "User",
+    name: "Schedule",
     data(){
         return{
             tableData: [],

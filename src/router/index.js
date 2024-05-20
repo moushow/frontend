@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Manage from '../views/Manage.vue'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -15,7 +14,7 @@ const routes = [
         path:'home',name:'首页',component:() => import("../views/Home.vue"),
       },
       {
-        path:'user',name:'日程查询',component:() => import("../views/User.vue"),
+        path:'schedule',name:'日程管理',component:() => import("../views/Schedule.vue"),
       },
       
     ]
@@ -27,6 +26,16 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
   }
 ]
 
@@ -38,7 +47,7 @@ const router = new VueRouter({
 
 
 //路由守卫
-router.beforeEach((to,from,next,) => {
+router.beforeEach((to,from,next) => {
   localStorage.setItem("currentPathName",to.name)  //设置当前路由名称
   store.commit("setPath")
   next()

@@ -26,8 +26,6 @@ export default {
   name: 'Home',
   data() {
     return {
-      
-      
       collapseBtnClass: 'el-icon-s-fold',
       isCollapse: false,
       sideWidth: 200,
