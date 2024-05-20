@@ -10,8 +10,8 @@
           router
       >
         <div style="height: 60px; line-height: 60px; text-align: center">
-          <img src="../assets/schedule.webp" alt="" style="width: 40px; position: relative; top: 15px; margin-right: 5px;" />
-          <b style="color: white" v-show="logoTextShow">日程管理系统</b>
+          <img src="../assets/logo.png" alt="" style="width: 30px; position: relative; top: 10px; margin-right: 5px;" />
+          <b style="color: white; font-size: 18px" v-show="logoTextShow">日程管理系统</b>
         </div>
 
           <el-menu-item index="/">
