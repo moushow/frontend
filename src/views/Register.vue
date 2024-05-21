@@ -6,7 +6,7 @@
         <div class="login-header">
           <b>欢迎注册日程管理系统！</b>
         </div>
-        <el-form :model="user" :rules="rules" ref="loginForm">
+        <el-form :model="user" :rules="rules" ref="registerForm">
           <el-form-item prop="username" class="form-item">
             <el-input
                 size="default"
@@ -47,8 +47,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { Message } from 'element-ui'
 
 export default {
   name: "RegisterView",
@@ -70,7 +68,24 @@ export default {
   },
   methods: {
     register() {
-
+      this.$refs.registerForm.validate(valid => {
+        if (valid) {
+          if (this.user.password !== this.user.confirmPassword) {
+            this.$message.error("两次输入的密码不一致");
+            return;
+          }
+          this.request.post("/user/register", this.user).then(res => {
+            if (res === 0) {
+              this.$message.error("用户名已存在");
+            } else {
+              this.$message.success("注册成功");
+              this.$router.push("/login");
+            }
+          })
+        } else {
+          return false;
+        }
+      })
     }
   }
 }
