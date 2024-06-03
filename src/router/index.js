@@ -36,6 +36,11 @@ const routes = [
     path: '/register',
     name: 'register',
     component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
+  },
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Calendar.vue')
   }
 ]
 
