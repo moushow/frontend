@@ -19,6 +19,7 @@ const routes = [
       {
         path:'calendar',name:'日历视图',component:() => import("../views/Calendar.vue"),
       },
+      
     ]
   },
   {
