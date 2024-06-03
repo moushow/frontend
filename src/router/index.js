@@ -16,7 +16,9 @@ const routes = [
       {
         path:'schedule',name:'日程管理',component:() => import("../views/Schedule.vue"),
       },
-      
+      {
+        path:'calendar',name:'日历视图',component:() => import("../views/Calendar.vue"),
+      },
     ]
   },
   {
@@ -36,11 +38,6 @@ const routes = [
     path: '/register',
     name: 'register',
     component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
-  },
-  {
-    path: '/calendar',
-    name: 'Calendar',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Calendar.vue')
   }
 ]
 
