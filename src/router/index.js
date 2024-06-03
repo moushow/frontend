@@ -19,7 +19,9 @@ const routes = [
       {
         path:'calendar',name:'日历视图',component:() => import("../views/Calendar.vue"),
       },
-      
+      {
+        path:'person',name:'个人中心',component:() => import("../views/Person.vue"),
+      }
     ]
   },
   {

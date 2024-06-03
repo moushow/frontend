@@ -37,16 +37,17 @@
           </el-menu-item>
           </el-submenu>
 
-        <!-- <el-submenu index="3">
-          <template #title>
-            <i class="el-icon-setting"></i>
-            <span>导航三</span>
+        <el-submenu index="3">
+          <template slot="title">
+            <i class="el-icon-menu"></i>
+            <span>社交互动</span>
           </template>
-          <el-submenu index="3-4">
-            <template #title>选项4</template>
-            <el-menu-item index="3-4-1">选项4-1</el-menu-item>
-          </el-submenu>
-        </el-submenu> -->
+          <el-menu-item index="/person">
+            <i class="el-icon-user-solid"></i>
+            <span slot="title">个人信息</span>
+          </el-menu-item>
+        </el-submenu>
+
       </el-menu>
 </template>
 
@@ -56,11 +57,6 @@ export default{
     props:{
         isCollapse: Boolean,
         logoTextShow: Boolean
-    },
-    methods:{
-      handleSelect(index){
-        
-      }
     }
 }
 </script>
