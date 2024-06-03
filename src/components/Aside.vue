@@ -29,8 +29,12 @@
           </template>
             <el-menu-item index="/schedule">
               <i class="el-icon-s-order"></i>
-              <span slot="title">日程查询</span>
+              <span slot="title">日程管理</span>
             </el-menu-item>
+            <el-menu-item index="/calendar">
+            <i class="el-icon-date"></i>
+            <span slot="title">日历视图</span>
+          </el-menu-item>
           </el-submenu>
 
         <!-- <el-submenu index="3">
