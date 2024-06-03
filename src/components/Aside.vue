@@ -14,7 +14,7 @@
           <b style="color: white; font-size: 18px" v-show="logoTextShow">日程管理系统</b>
         </div>
 
-          <el-menu-item index="/">
+          <el-menu-item index="/home">
             <template slot="title">
             <i class="el-icon-house"></i>
             <span slot="title">主页</span>
