@@ -26,7 +26,7 @@
        
         <el-table :data="tableData" border stripe :header-cell-class-name="headerBg" @selection-change="handleSelectionChange">
           <el-table-column type="selection"  width="55"></el-table-column>
-          <el-table-column prop="id" label="ID" width="80"></el-table-column>
+<!--          <el-table-column prop="id" label="ID" width="80"></el-table-column>-->
           <el-table-column prop="date" label="日期" width="150"></el-table-column>
           <el-table-column prop="event" label="事务" width="150"></el-table-column>
           <el-table-column prop="state" label="状态" width="150"></el-table-column>
@@ -104,7 +104,8 @@ export default{
             form:{},
             dialogFormVisible: false,
             multipleSelection:[],
-            headerBg:'headerBg'
+            headerBg:'headerBg',
+            user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : {}
         }
     },
     created(){
@@ -119,7 +120,8 @@ export default{
           date: this.date,
           event: this.event,
           state: this.state,
-          remark: this.remark
+          remark: this.remark,
+          username: this.user.username
         }
       }).then(res =>{
             console.log(res)
