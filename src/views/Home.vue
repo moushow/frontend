@@ -95,7 +95,7 @@ export default {
 .time-display {
   font-family: 'Courier New', Courier, monospace;
   font-size: 36px;
-  color: #ff3700;
+  color: #070403;
   background-color: #edebeb;
   padding: 10px 20px;
   border-radius: 5px;
