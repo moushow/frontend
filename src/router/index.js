@@ -21,6 +21,9 @@ const routes = [
       },
       {
         path:'person',name:'个人中心',component:() => import("../views/Person.vue"),
+      },
+      {
+        path:'password',name:'修改密码',component:() => import("../views/Password.vue"),
       }
     ]
   },
