@@ -11,7 +11,9 @@
       <span>{{ user.nickname }}</span>
       <i class="el-icon-arrow-down" style="margin-left: 5px;"></i>
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item style="font-size: 14px; padding: 5px 0">个人信息</el-dropdown-item>
+        <el-dropdown-item style="font-size: 14px; padding: 5px 0">
+          <router-link to="/person" style="text-decoration: none">个人信息</router-link>
+        </el-dropdown-item>
         <el-dropdown-item style="font-size: 14px; padding: 5px 0">
           <router-link to="/login" style="text-decoration: none">退出</router-link>
         </el-dropdown-item>
@@ -26,6 +28,7 @@ export default {
   props: {
     collapseBtnClass: String,
     collapse: Boolean,
+    user: Object
   },
   computed: {
     currentPathName() {

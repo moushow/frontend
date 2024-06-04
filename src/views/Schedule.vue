@@ -138,6 +138,7 @@ export default{
           })
     },
     save(){
+      this.form.username = this.user.username
       this.request.post("/schedule",this.form).then(res =>{
         if(res){
           this.$message.success("保存成功")
