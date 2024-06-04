@@ -45,7 +45,8 @@ export default {
         data: []
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
+        
       },
       series: [
         {
