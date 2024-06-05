@@ -48,10 +48,14 @@ export default {
             this.$message.error("两次输入的新密码不相同")
             return false
           }
+          if(this.form.password === this.form.newPassword){
+            this.$message.error("新密码与原密码相同")
+            return false
+          }
           this.request.post("/user/password", this.form).then(res => {
             if(res.code === '200'){
+              this.$router.push("/")
               this.$message.success("修改成功")
-              this.$store.commit("logout")
             }else{
               this.$message.error(res.msg)
             }
