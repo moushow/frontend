@@ -5,10 +5,10 @@
         <div style="text-align: center; margin: 10px 0">
           <el-upload
               class="avatar-uploader"
-              action="https://jsonplaceholder.typicode.com/posts/"
+              action="http://localhost:9090/file/upload"
               :show-file-list="false"
               :on-success="handleAvatarSuccess"
-              :before-upload="beforeAvatarUpload">
+          >
             <img v-if="form.avatar" :src="form.avatar" class="avatar">
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
@@ -77,7 +77,7 @@ export default{
         }
       })
     },
-    handleAvatarSuccess(){
+    handleAvatarSuccess(res){
       //res就是文件的路径
       this.form.avatar = res
     }
