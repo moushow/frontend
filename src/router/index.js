@@ -26,7 +26,10 @@ const routes = [
         path:'password',name:'社交互动  /  个人中心  /  修改密码',component:() => import("../views/Password.vue"),
       },
       {
-        path:'curriculum',name:'系统功能  /  课程管理',component:() => import("../views/Curriculum.vue"),
+        path:'curriculum',name:'系统功能  /  课表查询',component:() => import("../views/Curriculum.vue"),
+      },
+      {
+        path:'course',name:'系统功能  /  课程管理',component:() => import("../views/Course.vue"),
       }
     ]
   },
