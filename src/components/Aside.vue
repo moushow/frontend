@@ -34,7 +34,11 @@
             <el-menu-item index="/calendar">
             <i class="el-icon-date"></i>
             <span slot="title">日历视图</span>
-          </el-menu-item>
+            </el-menu-item>
+            <el-menu-item index="/curriculum">
+            <i class="el-icon-collection"></i>
+            <span slot="title">课程管理</span>
+            </el-menu-item>
           </el-submenu>
 
         <el-submenu index="3">

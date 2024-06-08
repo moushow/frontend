@@ -14,16 +14,19 @@ const routes = [
         path:'home',name:'首页',component:() => import("../views/Home.vue"),
       },
       {
-        path:'schedule',name:'日程管理',component:() => import("../views/Schedule.vue"),
+        path:'schedule',name:'系统功能  /  日程管理',component:() => import("../views/Schedule.vue"),
       },
       {
-        path:'calendar',name:'日历视图',component:() => import("../views/Calendar.vue"),
+        path:'calendar',name:'系统功能  /  日历视图',component:() => import("../views/Calendar.vue"),
       },
       {
-        path:'person',name:'个人中心',component:() => import("../views/Person.vue"),
+        path:'person',name:'社交互动  /  个人中心',component:() => import("../views/Person.vue"),
       },
       {
-        path:'password',name:'修改密码',component:() => import("../views/Password.vue"),
+        path:'password',name:'社交互动  /  个人中心  /  修改密码',component:() => import("../views/Password.vue"),
+      },
+      {
+        path:'curriculum',name:'系统功能  /  课程管理',component:() => import("../views/Curriculum.vue"),
       }
     ]
   },
