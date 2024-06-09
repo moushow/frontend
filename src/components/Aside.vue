@@ -14,13 +14,12 @@
           <b style="color: white; font-size: 18px" v-show="logoTextShow">日程管理系统</b>
         </div>
 
-          <el-menu-item index="/home">
-            <template slot="title">
-            <i class="el-icon-house"></i>
-            <span slot="title">主页</span>
-          </template>
-
-          </el-menu-item>
+       <el-menu-item index="/home">
+         <template slot="title">
+           <i class="el-icon-house"></i>
+           <span slot="title">主页</span>
+         </template>
+       </el-menu-item>
 
         <el-submenu index="2">
           <template slot="title">
@@ -45,7 +44,7 @@
             </el-menu-item>
           </el-submenu>
 
-        <el-submenu index="3">
+        <el-submenu index="4">
           <template slot="title">
             <i class="el-icon-menu"></i>
             <span>社交互动</span>
