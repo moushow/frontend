@@ -30,6 +30,12 @@ const routes = [
       },
       {
         path:'course',name:'系统功能  /  课程管理',component:() => import("../views/Course.vue"),
+      },
+      {
+        path:'friend',name:'社交互动  /  好友列表',component:() => import("../views/Friend.vue"),
+      },
+      {
+        path:'chat',name:'社交互动  /  在线聊天',component:() => import("../views/Chat.vue"),
       }
     ]
   },

@@ -51,8 +51,16 @@
             <span>社交互动</span>
           </template>
           <el-menu-item index="/person">
-            <i class="el-icon-user-solid"></i>
+            <i class="el-icon-user"></i>
             <span slot="title">个人信息</span>
+          </el-menu-item>
+          <el-menu-item index="/friend">
+            <i class="el-icon-user-solid"></i>
+            <span slot="title">好友列表</span>
+          </el-menu-item>
+          <el-menu-item index="/chat">
+            <i class="el-icon-chat-line-round"></i>
+            <span slot="title">在线聊天</span>
           </el-menu-item>
         </el-submenu>
 
