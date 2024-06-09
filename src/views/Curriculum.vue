@@ -12,7 +12,7 @@
       <el-table-column label="周一">
         <template v-slot="scope">
           <div v-if="scope.row.mon">
-            <div style="margin: 10px 0">{{ scope.row.mon.course}}</div>
+            <div style="margin: 10px 0">{{ scope.row.mon.name}}</div>
             <div style="margin: 10px 0">{{ scope.row.mon.room}}</div>
             <div style="margin: 10px 0">{{ scope.row.mon.teacher}}</div>
           </div>
@@ -21,7 +21,7 @@
       <el-table-column label="周二">
         <template v-slot="scope">
           <div v-if="scope.row.tue">
-            <div style="margin: 10px 0">{{ scope.row.tue.course}}</div>
+            <div style="margin: 10px 0">{{ scope.row.tue.name}}</div>
             <div style="margin: 10px 0">{{ scope.row.tue.room}}</div>
             <div style="margin: 10px 0">{{ scope.row.tue.teacher}}</div>
           </div>
@@ -30,7 +30,7 @@
       <el-table-column label="周三">
         <template v-slot="scope">
           <div v-if="scope.row.wes">
-            <div style="margin: 10px 0">{{ scope.row.wes.course}}</div>
+            <div style="margin: 10px 0">{{ scope.row.wes.name}}</div>
             <div style="margin: 10px 0">{{ scope.row.wes.room}}</div>
             <div style="margin: 10px 0">{{ scope.row.wes.teacher}}</div>
           </div>
@@ -39,7 +39,7 @@
       <el-table-column label="周四">
         <template v-slot="scope">
           <div v-if="scope.row.thu">
-            <div style="margin: 10px 0">{{ scope.row.thu.course}}</div>
+            <div style="margin: 10px 0">{{ scope.row.thu.name}}</div>
             <div style="margin: 10px 0">{{ scope.row.thu.room}}</div>
             <div style="margin: 10px 0">{{ scope.row.thu.teacher}}</div>
           </div>
@@ -48,7 +48,7 @@
       <el-table-column label="周五">
         <template v-slot="scope">
           <div v-if="scope.row.fri">
-            <div style="margin: 10px 0">{{ scope.row.fri.course}}</div>
+            <div style="margin: 10px 0">{{ scope.row.fri.name}}</div>
             <div style="margin: 10px 0">{{ scope.row.fri.room}}</div>
             <div style="margin: 10px 0">{{ scope.row.fri.teacher}}</div>
           </div>
@@ -57,7 +57,7 @@
       <el-table-column label="周六">
         <template v-slot="scope">
           <div v-if="scope.row.sat">
-            <div style="margin: 10px 0">{{ scope.row.sat.course}}</div>
+            <div style="margin: 10px 0">{{ scope.row.sat.name}}</div>
             <div style="margin: 10px 0">{{ scope.row.sat.room}}</div>
             <div style="margin: 10px 0">{{ scope.row.sat.teacher}}</div>
           </div>
@@ -66,7 +66,7 @@
       <el-table-column label="周日">
         <template v-slot="scope">
           <div v-if="scope.row.sun">
-            <div style="margin: 10px 0">{{ scope.row.sun.course}}</div>
+            <div style="margin: 10px 0">{{ scope.row.sun.name}}</div>
             <div style="margin: 10px 0">{{ scope.row.sun.room}}</div>
             <div style="margin: 10px 0">{{ scope.row.sun.teacher}}</div>
           </div>
@@ -81,12 +81,14 @@ export default {
   name: "Curriculum",
   data() {
     return{
-      tableData: [
-        { section: {num: '第一大节', time: '08:00-09:35'},
-          tue: {course: '软件工程', room: '曹光彪西-201', teacher: '邓水光'}, }
-      ],
-      user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : {}
+      user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : {},
+      tableData: []
     }
+  },
+  created() {
+    this.request.get("/curriculum/courseTable/" + this.user.username).then(res =>{
+      this.tableData = res.data
+    })
   }
 }
 </script>
